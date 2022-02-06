@@ -20,21 +20,31 @@ img {
   max-width: 100%;
   display: block;
 }
+/* respobsividade da img bike preta */
 
 a {
   text-decoration: none;
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   line-height: 1.3; /* altura de linha */
 }
+.header {
+  display: grid;
+  justify-items: center;
+  gap: 60px;
+}
 
-nav {
+nav ul {
   display: flex;
   flex-wrap: wrap; /* quebra a nav */
   justify-content: center; /* alinha no centro */
-  gap: 40px;
+  gap: 20px;
+  list-style: none;
+  flex-direction: row;
+  color: #000000;
+  text-transform: uppercase; /* transforma o texto em caixa alta */
 }
 
 li {
@@ -44,20 +54,14 @@ li {
   border-radius: 4px;
   font: bold;
   font-size: large;
+  border: 2px solid #fff; /* utilizado para que o li:hover abaixo não faça os outros elementos saltarem */
 }
 
 li:hover {
   border: 2px solid #dc143c;
 }
 
-/* altera só os links dentro de nav>li */
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  color: #000000;
-  text-transform: uppercase; /* transforma o texto em caixa alta */
-}
+/* altera só os links dentro de nav > li */
 
 .conteudo {
   display: grid;
@@ -76,10 +80,12 @@ nav ul {
   justify-items: end;
 }
 
-h1 {
+.introducao h1 {
   position: relative;
+  font-size: 2rem;
 }
 
+/* Detalhe vermelho */
 h1::after {
   content: "";
   width: 60px;
@@ -87,40 +93,37 @@ h1::after {
   background: red;
   display: inline-block;
   position: absolute;
-  top: -60px;
-  left: 273px;
+  top: -50px;
+  left: 360px;
 }
-
-/* .detalhe {
-  width: 60px;
-  height: 4px;
-  background: #ee2211;
-  position: absolute;
-  top: 30px;
-  right: -30px; centralizando o detalhe} */
+/* Deixando a img-bike responsiva */
+.introducao-cover img {
+  object-fit: cover;
+  height: 100%;
+}
 
 #botao {
   background: #ee2211;
   color: #fff;
-  padding: 15px 30px;
+  padding: 1rem 2rem;
   border-radius: 4px;
 }
 
 #botao:hover {
   background-color: #dc143c;
 }
-
-.section-subtitulo {
-  align-self: center;
-  background-image: url(img/onda.svg); /* onda adicionada como background*/
+.div-subtitulo {
+  background: #f7f7f7;
+  display: flex;
 }
-
 .subtitulo {
-  font-size: 64px;
+  font-size: 4rem;
   color: rgba(0, 0, 0, 0.2);
   text-align: right;
   padding: 40px;
   align-self: center;
+  background-image: url(img/onda.svg); /* onda adicionada como background*/
+  /* word-break: break-all; */
 }
 
 .vantagens {
@@ -133,6 +136,7 @@ h1::after {
   grid-template-columns: auto 1fr;
   gap: 10px 20px;
   padding: 20px;
+  border-left: 4px solid transparent;
 }
 
 .vantagens-item:hover {
@@ -142,6 +146,7 @@ h1::after {
 .vantagens-item p {
   grid-column: 2;
 }
+
 /* deixa os itens impares destacados odd / pares usa even */
 .vantagens-item:nth-child(odd) {
   background: #f7f7f7;
@@ -154,4 +159,53 @@ footer {
   padding: 30px;
   box-sizing: border-box;
   margin-bottom: -60px;
+}
+
+@media (max-width: 1000px) {
+  .conteudo-vantagens {
+    grid-template-columns: 1fr;
+  }
+  .subtitulo {
+    text-align: center;
+  }
+  h1::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    gap: 30px;
+    margin-top: 20px;
+  }
+  .header {
+    gap: 30px;
+  }
+  .conteudo {
+    grid-template-columns: 1fr;
+  }
+  .introducao {
+    text-align: left;
+    justify-items: start;
+  }
+  h1::after {
+    display: none;
+  }
+  .subtitulo {
+    font-size: 3rem;
+  }
+  li {
+    padding: 10px 15px;
+    margin: 0px 10px;
+    background: #ffffff;
+    border-radius: 4px;
+    font: bold;
+    font-size: 1rem;
+    border: 2px solid #fff; /* utilizado para que o li:hover abaixo não faça os outros elementos saltarem */
+  }
+}
+@media (max-width: 400px) {
+  .subtitulo {
+    font-size: 2rem;
+  }
 }
